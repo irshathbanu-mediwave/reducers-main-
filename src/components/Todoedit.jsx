@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-function Update() {
-  const [inputValue, setInputValue] = useState(""); // Initialize state for the input value
-  const handleUpdate = (e) => {
-    e.preventDefault();
-
-    console.log(" setInputValue");
+function Update({ text, onSave }) {
+  const [editvalue, seteditValue] = useState(text);
+  const handleSave = () => {
+    onSave(editvalue);
   };
   return (
     <>
       <div>
-        <form onSubmit={handleUpdate}>
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <button type="submit">Update</button>
-        </form>
+        <input
+          type="text"
+          value={editvalue}
+          onChange={(e) => seteditValue(e.target.value)}
+        />
+        <button onClick={handleSave}>Save</button>
       </div>
     </>
   );

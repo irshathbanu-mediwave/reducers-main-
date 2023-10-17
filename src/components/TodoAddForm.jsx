@@ -10,14 +10,15 @@ const TodoAddForm = ({ handleAdd }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <label> Enter the task
         <input
           type="text"
           required
           onChange={(e) => {
             setText(e.target.value);
           }}
+          maxLength="10"
           value={text}
         />
       </label>
